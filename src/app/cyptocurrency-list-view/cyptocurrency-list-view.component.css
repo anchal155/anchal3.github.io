@@ -1,0 +1,97 @@
+
+/* set style for whole material table*/
+
+mat-table {
+  width:100%;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  
+}
+
+buttton {
+  padding:8px;
+  border-spacing:3px;
+}
+
+
+/*set style for table column*/
+mat-header-cell {
+  font-size:12px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  display: table-cell;
+  height: 30px;
+  vertical-align: middle;
+  border-collapse:collapse;
+  font-weight:bold black;
+  border: 1px solid #ddd;
+  background-color: #4CAF50;
+  color:white;
+  align-self: stretch;
+
+  
+  
+}
+
+/*set style for table row*/
+
+mat-cell {
+  font-size:12px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  display: table-cell;
+  height: 48px;
+  border-collapse:collapse;
+  border: 1px solid #ddd;
+  align-self: stretch;
+
+}
+
+/*set hovering on the table row*/
+
+mat-row:hover {
+  background-color: #ddd;
+}
+
+.mat-sort-header-sorted {
+    color:white; /*set color for sorting as white*/
+   
+  }
+
+
+ .mat-column-select {
+    text-align: center;
+   padding:15px;
+  }
+
+  .mat-column-name {
+    padding : 15px;
+    text-align: left;
+    text-justify: inter-cluster;
+    
+  }
+
+  .mat-column-price {
+    padding:15px;
+    text-align:left;
+  }
+
+  .mat-column-market_cap {
+    padding:15px;
+    text-align:left;
+  }
+
+  /*set styling for footer row*/
+
+.hide {
+  display:none;
+}
+
+  mat-footer-row mat-footer-cell {
+
+    justify-content: center;
+    font-style:italic;
+    font-weight: bold;
+
+  }  
+    
+   
+  

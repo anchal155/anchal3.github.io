@@ -1,0 +1,13 @@
+
+<div class="top-nav">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <a class="navbar-brand" [routerLink]="['/']" style="color:white">CoinMarketCap</a>
+
+  <!--Filtering-->
+  <form>
+  <input type="text" name="focus" required class="search-box"  [(ngModel)]="searchKey"  placeholder="Search" (keyup)="applyFilter()">
+    <button class="close-icon" type="reset"  *ngIf="searchKey" ></button>  
+    </form>
+  </nav>   <!--Navbar collapse-->
+    </div>
+<router-outlet></router-outlet>

@@ -1,0 +1,28 @@
+<div class="container" *ngIf="currency">
+  <h2 style="float:left">{{currency.name}}</h2>
+    <h4 style="float: right;"> Current Price:{{currency.quote.USD.price}}$</h4>
+    <div class="table-responsive">
+      <table class="table table-bordered" style="margin-top:9%;">
+      <tbody>
+        <tr>
+          <td style="font-weight:bold;">volume_24h</td>
+          <td >{{currency.quote.USD.volume_24h}} USD</td>
+        </tr>
+        <tr>
+          <td style="font-weight:bold;">volume_24h_reported</td>
+          <td >{{currency.quote.USD.volume_24h_reported}} USD</td>
+        </tr>
+        <tr>
+          <td style="font-weight:bold;">Percentage change(24h)</td>
+          <td >{{currency.quote.USD.percent_change_24h}}%</td>
+        </tr>
+        <tr>
+          <td style="font-weight:bold;">Percentage Change(1h)</td>
+          <td >{{currency.quote.USD.percent_change_1h}}%</td>
+        </tr>
+       
+      </tbody>
+    </table>
+    </div>
+  </div>
+  

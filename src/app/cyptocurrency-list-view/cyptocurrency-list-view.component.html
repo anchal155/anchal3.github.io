@@ -1,0 +1,91 @@
+
+<!---Material Button for Navigation-->
+<div>
+  <h5 style="text-align:center;margin-top:8%">Top 500 Cryptocurrencies by Market Capitalization</h5>
+<button mat-raised-button color="accent" (click)="goToOther()" style="float:right; margin-top:3%;background-color:green;">Compare any two
+</button>
+
+</div>
+
+
+
+<!--Angular material Data Table-->
+<div class="mat-elevation-z8">
+<mat-table [dataSource]="currencies" matSort style="margin-top:20%;">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+   
+  <!---CheckBox Column--->
+  <ng-container matColumnDef="select">
+    <mat-header-cell *matHeaderCellDef >
+      <mat-checkbox (change)="$event ? masterToggle() : null"
+                    [checked]="selection.hasValue() && isAllSelected()"
+                    [indeterminate]="selection.hasValue() && !isAllSelected()">
+      </mat-checkbox>
+    </mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <mat-checkbox (click)="$event.stopPropagation()"
+                    (change)="$event ? selection.toggle(row) : null"
+                    [checked]="selection.isSelected(row)">
+      </mat-checkbox>
+    </mat-cell>
+  </ng-container>
+
+
+<!-- Name Column -->
+<ng-container matColumnDef="name" >    
+<mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+<mat-cell *matCellDef= "let currency" >{{currency.name}}</mat-cell>
+</ng-container>
+
+<!--Price Column-->
+<ng-container matColumnDef="price">    
+<mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
+<mat-cell *matCellDef= "let currency" >{{currency.quote.USD.price}}</mat-cell>
+</ng-container>
+
+<!-- Market CAP Column -->
+<ng-container matColumnDef="market_cap"  > 
+<mat-header-cell *matHeaderCellDef  mat-sort-header >MarketCAP</mat-header-cell>
+ <mat-cell *matCellDef= "let currency" >{{currency.quote.USD.market_cap}}</mat-cell>
+    </ng-container>
+
+
+<!--Footer column for loading data-->
+    <ng-container matColumnDef="loading">
+
+      <mat-footer-cell *matFooterCellDef colspan="6">
+        Loading Data.......
+      </mat-footer-cell>
+
+    </ng-container>
+
+    <ng-container matColumnDef="noData">
+
+      <mat-footer-cell *matFooterCellDef colspan="6">
+        No Data.....
+      </mat-footer-cell>
+
+    </ng-container>
+
+
+<!--Display row information-->
+<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+<mat-row *matRowDef="let row; columns: displayedColumns;" [routerLink]="['/priceview',row.id]" class="row-hover" (click)="selection.toggle(row)">
+</mat-row>
+
+<!---Footer-->
+<mat-footer-row *matFooterRowDef="['loading']" [ngClass]="{'hide':currencies!=null}"></mat-footer-row>
+
+<mat-footer-row *matFooterRowDef="['noData']" [ngClass]="{'hide':!(currencies!=null && currencies.data.length==0)}"></mat-footer-row> 
+</mat-table> 
+
+<!---Pagination--->
+<mat-paginator showFirstLastButtons [pageSizeOptions]="[25,50,75,100]" [pageSize]="50"></mat-paginator>
+
+
+</div>
+
+

@@ -1,0 +1,35 @@
+<div class="container">
+<h5>COMPARISON</h5>
+<!--Bootstrap responsive table-->
+<div class="table-responsive" style="padding:15px;" >
+<table class="table table-bordered" *ngFor="let row of selectedRows">
+
+    <tbody>
+        <tr>
+            <td style="font-weight: bold;">Name</td>
+            <td>{{row.name}}</td>
+        </tr>
+        <tr>
+            <td  style="font-weight: bold;">Price</td>
+            <td>{{row.quote.USD.price}}</td>
+    </tr>
+    <tr>
+        <td  style="font-weight: bold;">Volume(24h)</td>
+        <td>{{row.quote.USD.volume_24h}}</td>
+        </tr>
+    <tr>
+        <td style="font-weight: bold;">PercentageChange(24h)</td>
+        <td>{{row.quote.USD.percent_change_24h}}</td>
+    </tr>
+    <tr>
+        <td style="font-weight: bold;">PercentageChange(1h)</td>
+        <td>{{row.quote.USD.percent_change_1h}}</td>
+    </tr>
+    <tr>
+    <td style="font-weight: bold;">MarketCAP</td>
+    <td>{{row.quote.USD.market_cap}}</td>
+    </tr>
+    </tbody>
+</table>
+</div>
+</div>
